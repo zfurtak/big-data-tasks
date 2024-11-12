@@ -14,4 +14,23 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-core</artifactId>
+            <version>1.32</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-generator-annprocess</artifactId>
+            <version>1.32</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.tallison/jmatio -->
+        <dependency>
+            <groupId>org.tallison</groupId>
+            <artifactId>jmatio</artifactId>
+            <version>1.5</version>
+        </dependency>
+    </dependencies>
+
 </project>
