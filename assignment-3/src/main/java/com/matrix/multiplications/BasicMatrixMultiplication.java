@@ -1,7 +1,7 @@
-package com.matrix;
+package com.matrix.multiplications;
 
 public class BasicMatrixMultiplication {
-    public static void multiplyMatrices(int[][] matrix1, int[][] matrix2, int[][] resultMatrix) {
+    public static void multiply(int[][] matrix1, int[][] matrix2, int[][] resultMatrix) {
         int n = matrix1.length;
 
         for (int i = 0; i < n; i++) {
