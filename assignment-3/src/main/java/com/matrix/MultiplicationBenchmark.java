@@ -19,7 +19,6 @@ import java.util.concurrent.TimeUnit;
 @State(Scope.Thread)
 public class MultiplicationBenchmark {
     @Param({"10", "20", "50", "100", "200", "500", "1000", "1500", "2000"})
-//    @Param({"1000", "1500", "2000"})
     public int n;
     private int[][] matrix1;
     private int[][] matrix2;
