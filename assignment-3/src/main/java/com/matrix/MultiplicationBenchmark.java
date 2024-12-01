@@ -18,7 +18,8 @@ import java.util.concurrent.TimeUnit;
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 @State(Scope.Thread)
 public class MultiplicationBenchmark {
-    @Param({"2000"})
+    @Param({"10", "20", "50", "100", "200", "500", "1000", "1500", "2000"})
+//    @Param({"1000", "1500", "2000"})
     public int n;
     private int[][] matrix1;
     private int[][] matrix2;
@@ -32,28 +33,21 @@ public class MultiplicationBenchmark {
     }
 
     @Benchmark
-    public void multiplyMatricesBasic() {
-        BasicMatrixMultiplication.multiply(matrix1, matrix2, resultMatrix);
+    public void multiplyParallelArrays() {
+        ArraysParallelMultiplication.multiply(matrix1, matrix2, resultMatrix);
     }
 
-//    @Benchmark
-//    public void multiplyParallelArrays() {
-//        ArraysParallelMultiplication.multiply(matrix1, matrix2, resultMatrix);
-//    }
-//
-//
-//    @Benchmark
-//    public void multiplyParallelBlocking() {
-//        int tileSize = 256;
-//        BlockingParallelMultiplication.multiply(matrix1, matrix2, resultMatrix, tileSize);
-//    }
-//
-//    @Benchmark
-//    public void multiplyVectorized() {
-//        VectorizedMultiplication.multiply(matrix1, matrix2, resultMatrix);
-//    }
 
+    @Benchmark
+    public void multiplyParallelBlocking() {
+        int tileSize = 1024;
+        BlockingParallelMultiplication.multiply(matrix1, matrix2, resultMatrix, tileSize);
+    }
 
+    @Benchmark
+    public void multiplyVectorized() {
+        VectorizedMultiplication.multiply(matrix1, matrix2, resultMatrix);
+    }
 
 
     public static void main(String[] args) throws RunnerException {
