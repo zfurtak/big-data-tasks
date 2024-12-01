@@ -1,9 +1,9 @@
 package com.matrix;
 
 import com.matrix.multiplications.ArraysParallelMultiplication;
-import com.matrix.multiplications.BasicMatrixMultiplication;
 import com.matrix.multiplications.BlockingParallelMultiplication;
 import com.matrix.multiplications.VectorizedMultiplication;
+import com.matrix.multiplications.VectorizedParallelMultiplication;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
@@ -47,6 +47,11 @@ public class MultiplicationBenchmark {
     @Benchmark
     public void multiplyVectorized() {
         VectorizedMultiplication.multiply(matrix1, matrix2, resultMatrix);
+    }
+
+    @Benchmark
+    public void multiplyVectorizedParallel() {
+        VectorizedParallelMultiplication.multiply(matrix1, matrix2, resultMatrix);
     }
 
 

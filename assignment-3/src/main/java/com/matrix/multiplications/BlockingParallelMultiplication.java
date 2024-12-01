@@ -10,7 +10,7 @@ public class BlockingParallelMultiplication {
             int tileSize) {
         int n = matrix1.length;
         int cores = Runtime.getRuntime().availableProcessors();
-        ExecutorService executor = Executors.newFixedThreadPool(cores);
+        ExecutorService executor = Executors.newFixedThreadPool(2);
 
         for (int r = 0; r < n; r++) {
             for (int t = 0; t < n; t += tileSize) {
